@@ -1,7 +1,6 @@
 August::Application.routes.draw do
 
 
-
   root :to =>  "home#index"
 
   
@@ -16,6 +15,8 @@ August::Application.routes.draw do
     resources :settings
     resources :sections
     resources :nodes
+    resources :images
+    resources :items
   end
 
 end

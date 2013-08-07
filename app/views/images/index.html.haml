@@ -1,0 +1,28 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li.active= I18n.t("images.title")
+
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('images.name')
+    %th= I18n.t('images.src')
+    %th= I18n.t('images.imageable_id')
+    %th= I18n.t('images.imageable_type')
+    %th= I18n.t('images.summary')
+    %th
+
+  - @images.each do |image|
+    %tr
+      %td= image.name
+      %td= image.src
+      %td= image.imageable_id
+      %td= image.imageable_type
+      %td= image.summary
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_image_path(image)
+        = link_to '<i class="icon-remove"></i>'.html_safe, image, :method => :delete, :data => { :confirm => I18n.t('common.confirm') }
+
+= link_to I18n.t('common.new'), new_image_path

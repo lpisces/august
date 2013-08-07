@@ -9,11 +9,11 @@
 
 %table.table.table-condensed.table-bordered.table-hover
   <% for attribute in attributes -%>
-  %tr
+%tr
     %th= I18n.t('<%= singular_table_name%>.<%= attribute.human_name %>')
     %td= @<%= singular_table_name %>.<%= attribute.name %>
   <% end -%>
 
-= link_to I18n.t('common.edit'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
+= link_to I18n.t('common.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
 \|
 = link_to I18n.t('common.back'), <%= index_helper %>_path

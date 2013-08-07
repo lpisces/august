@@ -8,7 +8,7 @@
 %table.table.table-condensed.table-bordered.table-hover
   %tr
 <% for attribute in attributes -%>
-    %th= I18n.t('<%= plural_table_name %>.<%= attribute.human_name %>')
+    %th= I18n.t('<%= plural_table_name %>.<%= attribute.name %>')
 <% end -%>
     %th
 

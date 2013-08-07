@@ -1,0 +1,22 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li.active= I18n.t("items.title")
+
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('items.name')
+    %th= I18n.t('items.summary')
+    %th
+
+  - @items.each do |item|
+    %tr
+      %td= item.name
+      %td= item.summary
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item)
+        = link_to '<i class="icon-remove"></i>'.html_safe, item, :method => :delete, :data => { :confirm => I18n.t('common.confirm') }
+
+= link_to I18n.t('common.new'), new_item_path

@@ -1,0 +1,29 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li
+    %a{:href => images_path}= I18n.t("images.title")
+    %span.divider /
+  %li.active= I18n.t('common.show')
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('images.name')
+    %td= @image.name
+    %tr
+    %th= I18n.t('images.src')
+    %td= @image.src
+    %tr
+    %th= I18n.t('images.imageable')
+    %td= @image.imageable_id
+    %tr
+    %th= I18n.t('images.imageable_type')
+    %td= @image.imageable_type
+    %tr
+    %th= I18n.t('images.summary')
+    %td= @image.summary
+  
+= link_to I18n.t('common.edit'), edit_image_path(@image)
+\|
+= link_to I18n.t('common.back'), images_path

@@ -1,0 +1,20 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li
+    %a{:href => items_path}= I18n.t("items.title")
+    %span.divider /
+  %li.active= I18n.t('common.show')
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('item.Name')
+    %td= @item.name
+  %tr
+    %th= I18n.t('item.Summary')
+    %td= @item.summary
+  
+= link_to I18n.t('common.edit'), edit_item_path(@item)
+\|
+= link_to I18n.t('common.back'), items_path

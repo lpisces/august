@@ -24,3 +24,18 @@
     section: '分类'
     submit: '保 存'
 
+  images:
+    title: '图片'
+    src: '路径'
+    name: '名称'
+    summary: '简介'
+    imageable_id: 'ID'
+    imageable_type: '图片所属'
+    submit: '保 存'
+
+  items:
+    title: '项'
+    name: '名称'
+    summary: '简介'
+    submit: '保 存'
+    

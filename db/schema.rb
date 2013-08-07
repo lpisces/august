@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806164608) do
+ActiveRecord::Schema.define(version: 20130807082357) do
+
+  create_table "images", force: true do |t|
+    t.string   "name"
+    t.text     "src"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nodes", force: true do |t|
     t.string   "name"
