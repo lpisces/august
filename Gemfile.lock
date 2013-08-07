@@ -47,6 +47,9 @@ GEM
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.1.4)
+    carrierwave (0.6.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     chunky_png (1.2.8)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -161,6 +164,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.3.2.0)
+  carrierwave
   coffee-rails (~> 4.0.0)
   compass-rails!
   devise

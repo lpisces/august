@@ -33,3 +33,6 @@ gem 'devise'
 group :doc do
   gem 'sdoc', require: false
 end
+
+#上传
+gem 'carrierwave'
