@@ -28,6 +28,13 @@ class ItemsController < CpanelController
 
     respond_to do |format|
       if @item.save
+        @item.images.delete_all
+        unless params.require(:item)[:images_id].nil?
+          params.require(:item)[:images_id].each do |id|
+            image = Image.find_by_id(id)
+            (@item.images << image) unless image.nil?
+          end
+        end
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
@@ -42,6 +49,13 @@ class ItemsController < CpanelController
   def update
     respond_to do |format|
       if @item.update(item_params)
+        @item.images.delete_all
+        unless params.require(:item)[:images_id].nil?
+          params.require(:item)[:images_id].each do |id|
+            image = Image.find_by_id(id)
+            (@item.images << image) unless image.nil?
+          end
+        end
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else

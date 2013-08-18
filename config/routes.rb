@@ -3,6 +3,8 @@ August::Application.routes.draw do
 
   root :to =>  "home#index"
 
+  mount Markitup::Rails::Engine, at: "markitup", as: "markitup"
+
   
   devise_for :users, :controllers => { :sessions => "session", :registrations => "account", :passwords => "passwords"}
 
@@ -16,7 +18,9 @@ August::Application.routes.draw do
     resources :sections
     resources :nodes
     resources :images
-    resources :items
+    resources :items do
+      resources :images
+    end
   end
 
 end

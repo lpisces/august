@@ -36,3 +36,15 @@ end
 
 #上传
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'mime-types'
+gem "jquery-fileupload-rails"
+
+
+#debug
+gem 'byebug'
+
+
+#editor
+gem "markitup-rails"
+gem "maruku"

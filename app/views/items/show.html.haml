@@ -9,11 +9,11 @@
 
 %table.table.table-condensed.table-bordered.table-hover
   %tr
-    %th= I18n.t('item.Name')
+    %th= I18n.t('items.name')
     %td= @item.name
   %tr
-    %th= I18n.t('item.Summary')
-    %td= @item.summary
+    %th= I18n.t('items.summary')
+    %td= Maruku.new(@item.summary).to_html.html_safe
   
 = link_to I18n.t('common.edit'), edit_item_path(@item)
 \|

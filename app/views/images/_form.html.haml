@@ -14,16 +14,6 @@
     .controls{:style => 'margin-left:100px;'}
       = f.file_field :src, :autofocus => true
       %span.help-inline= @image.errors[:src].first unless @image.errors[:src].empty?
-  .control-group{:class => ('error' unless @image.errors[:imageable_id].empty?)}
-    = f.label :imageable_id, I18n.t('images.imageable_id'), :class => 'control-label', :style => 'width:80px'
-    .controls{:style => 'margin-left:100px;'}
-      = f.number_field :imageable_id, :autofocus => true
-      %span.help-inline= @image.errors[:imageable_id].first unless @image.errors[:imageable_id].empty?
-  .control-group{:class => ('error' unless @image.errors[:imageable_type].empty?)}
-    = f.label :imageable_type, I18n.t('images.imageable_type'), :class => 'control-label', :style => 'width:80px'
-    .controls{:style => 'margin-left:100px;'}
-      = f.text_field :imageable_type, :autofocus => true
-      %span.help-inline= @image.errors[:imageable_type].first unless @image.errors[:imageable_type].empty?
   .control-group{:class => ('error' unless @image.errors[:summary].empty?)}
     = f.label :summary, I18n.t('images.summary'), :class => 'control-label', :style => 'width:80px'
     .controls{:style => 'margin-left:100px;'}

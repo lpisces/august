@@ -14,7 +14,7 @@
   - @items.each do |item|
     %tr
       %td= item.name
-      %td= item.summary
+      %td= Maruku.new(item.summary).to_html.html_safe
       %td
         = link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item)
         = link_to '<i class="icon-remove"></i>'.html_safe, item, :method => :delete, :data => { :confirm => I18n.t('common.confirm') }
