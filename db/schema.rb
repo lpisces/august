@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130807082357) do
+ActiveRecord::Schema.define(version: 20130819120038) do
 
   create_table "images", force: true do |t|
     t.string   "name"
@@ -24,10 +24,33 @@ ActiveRecord::Schema.define(version: 20130807082357) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "name"
-    t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "detail_url"
+    t.string   "click_url"
+    t.string   "shop_click_url"
+    t.string   "num_iid"
+    t.string   "title"
+    t.string   "nick"
+    t.string   "type"
+    t.text     "desc"
+    t.datetime "created"
+    t.string   "pic_url"
+    t.integer  "num"
+    t.text     "item_imgs"
+    t.text     "prop_imgs"
+    t.decimal  "price",             precision: 8, scale: 2, default: 0.0
+    t.decimal  "coupon_price",      precision: 8, scale: 2
+    t.string   "coupon_rate"
+    t.datetime "coupon_start_time"
+    t.datetime "coupon_end_time"
+    t.string   "commission"
+    t.string   "commission_rate"
+    t.string   "commission_num"
+    t.string   "commission_volumn"
+    t.integer  "volumn"
+    t.string   "shop_type"
+    t.integer  "node_id"
   end
 
   create_table "nodes", force: true do |t|
@@ -51,6 +74,14 @@ ActiveRecord::Schema.define(version: 20130807082357) do
     t.string   "name"
     t.string   "value"
     t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.boolean  "highlight"
+    t.integer  "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

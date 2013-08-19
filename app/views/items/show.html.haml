@@ -10,10 +10,32 @@
 %table.table.table-condensed.table-bordered.table-hover
   %tr
     %th= I18n.t('items.name')
-    %td= @item.name
+    - if @item.detail_url.strip.size > 0
+      - @item.title << "&nbsp;<a href='#{@item.detail_url}' target='_blank' class='btn btn-mini'>#{I18n.t('items.detail_url')}</a>"
+    - if @item.click_url.strip.size > 0
+      - @item.title << "&nbsp;<a href='#{@item.click_url}' target='_blank' class='btn btn-mini'>#{I18n.t('items.click_url')}</a>"
+    %td= @item.title.html_safe
+
   %tr
-    %th= I18n.t('items.summary')
-    %td= Maruku.new(@item.summary).to_html.html_safe
+    %th= I18n.t('items.node_id')
+    %td= "#{@item.node.section.name} / #{@item.node.name}"
+
+  %tr
+    %th= I18n.t('items.price')
+    %td= @item.price
+  %tr
+    %th= I18n.t('items.coupon_price')
+    %td= @item.coupon_price
+
+  %tr
+    %th= I18n.t('items.pic_url')
+    %td
+      %img{:src => @item.pic_url, :style => 'height:100px;'}
+  %tr
+    %th= I18n.t('items.item_imgs')
+    %td
+      - @item.item_imgs.split(',').each do |img|
+        %img{:src => img, :style => 'height:100px;margin-left:5px;float:left;'}
   
 = link_to I18n.t('common.edit'), edit_item_path(@item)
 \|

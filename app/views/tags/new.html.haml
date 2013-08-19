@@ -1,0 +1,13 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li
+    %a{:href => tags_path}= I18n.t("tags.title")
+    %span.divider /
+  %li.active= I18n.t('common.new')
+
+
+= render 'form'
+
+= link_to I18n.t('common.back'), tags_path

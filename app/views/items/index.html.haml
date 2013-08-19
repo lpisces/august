@@ -8,13 +8,24 @@
 %table.table.table-condensed.table-bordered.table-hover
   %tr
     %th= I18n.t('items.name')
-    %th= I18n.t('items.summary')
+    %th= I18n.t('items.pic_url')
+    %th= I18n.t('items.price')
+    %th= I18n.t('items.coupon_price')
+    %th
     %th
 
   - @items.each do |item|
     %tr
-      %td= item.name
-      %td= Maruku.new(item.summary).to_html.html_safe
+      %td{:style => 'width:200px;font-size:12px;'}= item.title
+      %td{:style => 'width:100px;'}
+        %img{:src => item.pic_url, :style => 'height:100px;'}
+      %td= item.price
+      %td= item.coupon_price
+      %td
+        - if item.detail_url.strip.size > 0
+          %a.btn.btn-mini{:href => item.detail_url, :target => '_blank'}= I18n.t('items.detail_url')
+        - if item.click_url.strip.size > 0
+          %a.btn.btn-mini.btn-primary{:href => item.click_url, :target => '_blank'}= I18n.t('items.click_url')
       %td
         = link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item)
         = link_to '<i class="icon-remove"></i>'.html_safe, item, :method => :delete, :data => { :confirm => I18n.t('common.confirm') }

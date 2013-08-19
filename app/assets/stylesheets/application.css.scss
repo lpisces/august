@@ -7,6 +7,7 @@ $navbarHeight: 30px;
 
 @import "compass/utilities/general/min";
 @import "compass/utilities/general/float";
+@import "compass/css3/border-radius";
 
 /* customize style start*/
 
@@ -60,3 +61,75 @@ margin-top:5px;
   @include min-height(2500px);
 }
 
+/* home page*/
+.thing{
+  @include border-radius(5px);
+  background-color:#fff;
+  margin:10px;
+  @include min-height(380px);
+  img.pic_url{
+    width:300px;
+    @include border-radius(5px);
+    margin-left:4px;
+    margin-top:5px;
+  }
+  .info{
+    width:90%;
+    margin: 5px auto;
+    a.title{
+      font-size:12px;
+      color: #999;
+    }
+    .sale{
+      text-decoration: line-through;
+    }
+    .coupon_price{
+      font-size:14px;
+      color:red;
+      font-weight:bold;
+    }
+    a.item_link{
+      font-size:12px;
+    }
+  }
+}
+
+.section{
+  background-color:#fff;
+  padding:10px;
+  @include min-height(50px);
+  @include border-radius(5px);
+  a.section{
+    font-size:14px;
+    color:#444;
+    padding:3px;
+    font-weight:bold;
+  }
+  .nodes{
+    padding:5px;
+    a.node{
+      margin:3px;
+    }
+  }
+}
+
+.tags{
+  background-color:#fff;
+  padding:10px;
+  margin-top:10px;
+  @include min-height(50px);
+  @include border-radius(5px);
+  a.tags{
+    font-size:14px;
+    color:#444;
+    padding:3px;
+    font-weight:bold;
+  }
+
+  .tags_list{
+    padding:5px;
+    a.tag{
+      margin:3px;
+    }
+  }
+}

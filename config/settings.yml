@@ -10,6 +10,7 @@ nav:
     {cname: '分类', controller: 'sections', link: '/cpanel/sections'}, 
     {cname: '节点', controller: 'nodes', link: '/cpanel/nodes'}, 
     {cname: '图片', controller: 'images', link: '/cpanel/images'}, 
+    {cname: '标签', controller: 'tags', link: '/cpanel/tags'}, 
     {cname: '项', controller: 'items', link: '/cpanel/items'}, 
   ]
 

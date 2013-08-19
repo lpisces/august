@@ -1,0 +1,23 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li
+    %a{:href => tags_path}= I18n.t("tags.title")
+    %span.divider /
+  %li.active= I18n.t('common.show')
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('tags.name')
+    %td= @tag.name
+  %tr
+    %th= I18n.t('tags.highlight')
+    %td= @tag.highlight ? I18n.t('common.true') : I18n.t('common.false')
+  %tr
+    %th= I18n.t('tags.sort')
+    %td= @tag.sort
+  
+= link_to I18n.t('common.edit'), edit_tag_path(@tag)
+\|
+= link_to I18n.t('common.back'), tags_path

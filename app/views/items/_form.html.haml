@@ -4,16 +4,67 @@
       %button.close{"data-dismiss" => "alert", :type => "button"} x
       = I18n.t('errors.messages.not_saved', count: @item.errors.count)
 
-  .control-group{:class => ('error' unless @item.errors[:name].empty?)}
-    = f.label :name, I18n.t('items.name'), :class => 'control-label', :style => 'width:80px'
+  .control-group{:class => ('error' unless @item.errors[:node_id].empty?)}
+    = f.label :node_id, I18n.t('items.node_id'), :class => 'control-label', :style => 'width:80px'
     .controls{:style => 'margin-left:100px;'}
-      = f.text_field :name, :autofocus => true
-      %span.help-inline= @item.errors[:name].first unless @item.errors[:name].empty?
-  .control-group{:class => ('error' unless @item.errors[:summary].empty?)}
-    = f.label :summary, I18n.t('items.summary'), :class => 'control-label', :style => 'width:80px'
+      /= f.number_field :section_id, :autofocus => true
+      /= options_from_collection_for_select(Section.all, :id, :name)
+      = f.select(:node_id, Node.all.order('section_id asc').map { |node| ["#{node.section.name} / #{node.name}", node.id] })
+      /%span.help-inline= @node.errors[:section_id].first unless @node.errors[:section_id].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:title].empty?)}
+    = f.label :title, I18n.t('items.num_iid'), :class => 'control-label', :style => 'width:80px'
     .controls{:style => 'margin-left:100px;'}
-      = f.text_area :summary, :autofocus => true
-      %span.help-inline= @item.errors[:summary].first unless @item.errors[:summary].empty?
+      = f.text_field :num_iid,  :class => 'input-xxlarge'
+      %a.btn.btn-mini#get_info{:href => 'javascript:void(0)'}= I18n.t('items.get_info')
+
+  .control-group{:class => ('error' unless @item.errors[:title].empty?)}
+    = f.label :title, I18n.t('items.name'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :title,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:title].first unless @item.errors[:title].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:coupon_price].empty?)}
+    = f.label :coupon_price, I18n.t('items.coupon_price'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :coupon_price,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:coupon_price].first unless @item.errors[:coupon_price].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:click_url].empty?)}
+    = f.label :click_url, I18n.t('items.click_url'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :click_url,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:click_url].first unless @item.errors[:click_url].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:price].empty?)}
+    = f.label :price, I18n.t('items.price'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :price,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:price].first unless @item.errors[:price].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:detail_url].empty?)}
+    = f.label :detail_url, I18n.t('items.detail_url'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :detail_url,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:detail_url].first unless @item.errors[:detail_url].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:coupon_price].empty?)}
+    = f.label :pic_url, I18n.t('items.pic_url'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :pic_url,  :class => 'input-xxlarge'
+      %span.help-inline= @item.errors[:pic_url].first unless @item.errors[:pic_url].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:item_imgs].empty?)}
+    = f.label :item_imgs, I18n.t('items.item_imgs'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_area :item_imgs,  :class => 'input-xxlarge', :rows => 10
+      %span.help-inline= @item.errors[:item_imgs].first unless @item.errors[:item_imgs].empty?
+
+  .control-group{:class => ('error' unless @item.errors[:desc].empty?)}
+    = f.label :desc, I18n.t('items.desc'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_area :desc,  :class => 'input-xxlarge span20', :rows => 10
+      %span.help-inline= @item.errors[:desc].first unless @item.errors[:desc].empty?
 
   .control-group
     = f.label :images, I18n.t('items.images'), :class => 'control-label', :style => 'width:80px'
@@ -28,7 +79,6 @@
         - @item.images.each do |img|
           %input{:type => 'hidden', :value => img.id, :name => 'item[images_id][]', :id => "img_#{img.id}"}
           %img{:src => img.src.url, :style => 'height:100px;border:5px solid #eee;', :'data-id' => img.id}
-  
      
   .control-group
     .controls{:style => 'margin-left:100px;'}

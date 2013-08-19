@@ -1,0 +1,27 @@
+= form_for(@tag, :html => {:class => 'form-horizontal'} ) do |f|
+  - if @tag.errors.any?
+    .alert.alert-error
+      %button.close{"data-dismiss" => "alert", :type => "button"} x
+      = I18n.t('errors.messages.not_saved', count: @tag.errors.count)
+
+  .control-group{:class => ('error' unless @tag.errors[:name].empty?)}
+    = f.label :name, I18n.t('tags.name'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :name, :autofocus => true
+      %span.help-inline= @tag.errors[:name].first unless @tag.errors[:name].empty?
+  .control-group{:class => ('error' unless @tag.errors[:sort].empty?)}
+    = f.label :sort, I18n.t('tags.sort'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.number_field :sort, :autofocus => true
+      %span.help-inline= @tag.errors[:sort].first unless @tag.errors[:sort].empty?
+
+  .control-group{:class => ('error' unless @tag.errors[:highlight].empty?)}
+    = f.label :highlight, I18n.t('tags.highlight'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.check_box :highlight, :autofocus => true
+      %span.help-inline= @tag.errors[:highlight].first unless @tag.errors[:highlight].empty?
+
+
+  .control-group
+    .controls{:style => 'margin-left:100px;'}
+      = f.submit I18n.t('tags.submit'), :class => 'btn btn-mini btn-success'

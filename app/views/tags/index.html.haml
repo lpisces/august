@@ -1,0 +1,24 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/cpanel"}= I18n.t('cpanel.title')
+    %span.divider /
+  %li.active= I18n.t("tags.title")
+
+
+%table.table.table-condensed.table-bordered.table-hover
+  %tr
+    %th= I18n.t('tags.name')
+    %th= I18n.t('tags.highlight')
+    %th= I18n.t('tags.sort')
+    %th
+
+  - @tags.each do |tag|
+    %tr
+      %td= tag.name
+      %td= tag.highlight ? I18n.t('common.true') : I18n.t('common.false')
+      %td= tag.sort
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_tag_path(tag)
+        = link_to '<i class="icon-remove"></i>'.html_safe, tag, :method => :delete, :data => { :confirm => I18n.t('common.confirm') }
+
+= link_to I18n.t('common.new'), new_tag_path
