@@ -61,11 +61,16 @@ margin-top:5px;
   @include min-height(2500px);
 }
 
+ul.breadcrumb{
+  background-color:#fff;
+}
+
 /* home page*/
 .thing{
   @include border-radius(5px);
   background-color:#fff;
-  margin:10px;
+  margin-right:10px;
+  margin-bottom:10px;
   @include min-height(380px);
   img.pic_url{
     width:300px;
@@ -132,4 +137,67 @@ margin-top:5px;
       margin:3px;
     }
   }
+}
+
+.single_thing{
+  @include border-radius(5px);
+  width:630px;
+  background-color:#fff;
+  margin-right:10px;
+  img{
+    @include border-radius(5px);
+  }
+  .title{
+    margin-top:20px;
+    a{
+      font-size:18px;
+      line-height:24px;
+      color: #999;
+      display:block;
+      width:100%;
+      margin-left:10px;
+    }
+  }
+  .info{
+    width:90%;
+    span{
+      padding:0px 10px;
+      font-size:14px;
+    }
+    .coupon_price{
+      font-size:18px;
+      color:red;
+      font-weight:bold;
+    }
+    .sale{
+      text-decoration: line-through;
+    }
+    .item_link{
+      font-size: 12px;
+    }
+  }
+  .tags {
+    margin-top:20px;
+    a.tag{
+      
+    }
+  }
+  .share{
+    padding-left:10px;
+  }
+  
+}
+
+.single_thing_imgs{
+  margin-right:10px;
+  img{
+    @include border-radius(5px);
+    margin:10px auto;
+  }
+}
+
+.sidebar{
+  float:left;
+  width:340px;
+  margin-left:-30px;
 }

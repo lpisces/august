@@ -8,3 +8,6 @@
     upload: '上传'
     :'true': '是'
     :'false': '否'
+    home: '首页'
+    hot_tags: '热门标签'
+    go: '看看去'

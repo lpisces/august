@@ -17,6 +17,13 @@
     %td= @item.title.html_safe
 
   %tr
+    %th= I18n.t('items.tags')
+    %td
+      - @item.tags.gsub(/[\s,]/, ',').split(',').each do |tag|
+        - if tag.strip.size > 0
+          %span.label= tag.html_safe
+
+  %tr
     %th= I18n.t('items.node_id')
     %td= "#{@item.node.section.name} / #{@item.node.name}"
 

@@ -1,0 +1,60 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "/"}= I18n.t('common.home')
+    %span.divider /
+  %li
+    %a{:href => "#"}= @item.node.name
+    %span.divider /
+  %li.active= @item.title
+
+.single_thing.pull-left{:style => "margin-left:0px;width:620px;"}
+  %a.pic_url.pull-left{:href => 'javascript:void(0)'}
+    %img{:src => @item.try(:pic_url), :style => 'width:310px;'}
+
+  .span7
+    .title
+      %a{:href => @item.detail_url, :target => '_blank'}= @item.title
+  
+    .info
+      %br/
+      - if @item.coupon_price.to_s.strip.size > 0
+        %span.coupon_price= "&yen;&nbsp;#{@item.coupon_price}&nbsp;".html_safe
+      - if @item.coupon_price.to_s.strip.size > 0
+        %span.price.sale= "&yen;&nbsp;#{@item.price}".html_safe
+      - else 
+        %span.price= "&yen;&nbsp;#{@item.price}".html_safe
+      %a.item_link.pull-right.btn.btn-success.btn-mini{:href => "#{@item.detail_url}", :target => '_blank'}= "#{I18n.t('common.go')} <i class='icon-double-angle-right icon-large'></i>".html_safe
+
+    .tags
+      - if @item.tags
+        - @item.tags.gsub(/[\s,]/, ',').split(',').each do |tag|
+          %a.btn.btn-mini{:href => '#'}= tag
+
+    .share
+
+      / JiaThis Button BEGIN
+      .jiathis_style_24x24
+        %a.jiathis_button_qzone
+        %a.jiathis_button_tsina
+        %a.jiathis_button_tqq
+        %a.jiathis_button_weixin
+        %a.jiathis_button_renren
+        %a.jiathis.jiathis_txt.jtico.jtico_jiathis{:href => "http://www.jiathis.com/share", :target => "_blank"}
+        %a.jiathis_counter_style
+      %script{:charset => "utf-8", :src => "http://v3.jiathis.com/code/jia.js?uid=1343875177631419", :type => "text/javascript"}
+      / JiaThis Button END
+
+.sidebar.pull-left{:style => "margin-left:0px;width:360px;"}
+  .section
+    %a.section{:href => "/s/#{@item.node.section.id}", :target => '_blank'}= @item.node.section.name
+    .nodes
+      - @item.node.section.nodes.each do |node|
+        %a.btn.btn-mini.node.pull-left{:href => "/n/#{node.id}", :target => '_blank'}= node.name
+
+.single_thing_imgs.span17.pull-left{:style => 'margin-left:0px;width:620px;'}
+  - @item.item_imgs.split(',').each do |img| 
+    - if img != @item.pic_url
+      %img.span17.pull-left{:src => img}
+
+
+

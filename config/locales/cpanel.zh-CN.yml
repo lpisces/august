@@ -49,6 +49,7 @@
     item_imgs: '图片'
     item_node: '分类'
     node_id:  '节点'
+    tags: '标签'
   tags:
     title: '标签'
     name: '名称'

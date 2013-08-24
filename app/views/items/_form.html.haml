@@ -13,10 +13,15 @@
       /%span.help-inline= @node.errors[:section_id].first unless @node.errors[:section_id].empty?
 
   .control-group{:class => ('error' unless @item.errors[:title].empty?)}
-    = f.label :title, I18n.t('items.num_iid'), :class => 'control-label', :style => 'width:80px'
+    = f.label :num_iid, I18n.t('items.num_iid'), :class => 'control-label', :style => 'width:80px'
     .controls{:style => 'margin-left:100px;'}
       = f.text_field :num_iid,  :class => 'input-xxlarge'
       %a.btn.btn-mini#get_info{:href => 'javascript:void(0)'}= I18n.t('items.get_info')
+
+  .control-group{:class => ('error' unless @item.errors[:title].empty?)}
+    = f.label :tags, I18n.t('items.tags'), :class => 'control-label', :style => 'width:80px'
+    .controls{:style => 'margin-left:100px;'}
+      = f.text_field :tags,  :class => 'input-xxlarge'
 
   .control-group{:class => ('error' unless @item.errors[:title].empty?)}
     = f.label :title, I18n.t('items.name'), :class => 'control-label', :style => 'width:80px'

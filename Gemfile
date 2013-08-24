@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '4.0.0'
 
@@ -48,3 +48,6 @@ gem 'byebug'
 #editor
 gem "markitup-rails"
 gem "maruku"
+
+#cache
+gem "cells"

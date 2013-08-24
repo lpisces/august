@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819120038) do
+ActiveRecord::Schema.define(version: 20130820141455) do
 
   create_table "images", force: true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20130819120038) do
     t.integer  "volumn"
     t.string   "shop_type"
     t.integer  "node_id"
+    t.string   "tags"
   end
 
   create_table "nodes", force: true do |t|

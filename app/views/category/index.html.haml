@@ -14,12 +14,11 @@
           %span.price= "&yen;&nbsp;#{item.price}".html_safe
         %a.item_link.pull-right{:href => item.buy_url, :target => '_blank'}= "#{I18n.t('common.go')} <i class='icon-double-angle-right icon-large'></i>".html_safe
 .sidebar
-  - @sections.each do |section|
-    .section
-      %a.section{:href => category_path(section.id)}= section.name
-      .nodes
-        - section.nodes.each do |node|
-          %a.btn.btn-mini.node.pull-left{:href => "/n/#{node.id}", :target => '_blank'}= node.name
+  .section
+    %a.section{:href => category_path(@section.id)}= @section.name
+    .nodes
+      - @section.nodes.each do |node|
+        %a.btn.btn-mini.node.pull-left{:href => "/n/#{node.id}", :target => '_blank'}= node.name
 
   .tags
     %a.tags{:href => "/t/", :target => '_blank'}= I18n.t('common.hot_tags')
